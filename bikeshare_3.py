@@ -95,20 +95,28 @@ def load_data(city, month, day):
     Returns:
             df - Pandas DataFrame containing city data filtered by month and day
     """
-    if city in list_city:
-        filename = CITY_DATA[city]
-        df = pd.read_csv(filename)
-        df['Start Time'] = pd.to_datetime(df['Start Time'])
-        if month == None and day == None:
-            df['Start Time'] = pd.to_datetime(df['Start Time'])
-        elif month ==None and day != None:
-            df['DayOfWeek'] = df['Start Time'].dt.dayofweek
-        elif month != None and day == None:
-            df['Month'] = df['Start Time'].dt.month
-        elif month != None and day != None:
-            df['DayOfWeek'] = df['Start Time'].dt.dayofweek
-            df['Month'] = df['Start Time'].dt.month
-    return df
+    filename = CITY_DATA[city]
+    df = pd.read_csv(filename)
+    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['DayOfWeek'] = df['Start Time'].dt.dayofweek
+    df['Month'] = df['Start Time'].dt.month
+    if month == None and day == None:
+        df2 = df
+    elif  day == 'all':
+        df2 = df
+    elif day != None and day != 'all':
+        df2 = df[df['DayOfWeek'] == day]
+    elif month == 'all':
+        df2 = df
+    elif month != None and month != 'all':
+        df2 = df[df['Month'] == month]
+    elif month != None and day != None:
+        df1 = df[df['Month'] == month]
+        df2 = df1[df1['DayOfWeek'] == day]
+
+    return df2
+
+
 
 
 
