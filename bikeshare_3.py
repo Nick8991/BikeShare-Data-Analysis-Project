@@ -13,10 +13,7 @@ month_index = {'january':1, 'february':2, 'march':3,  'april':4, 'may': 5,
 week_index = {'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3,
                 'friday':4, 'saturday':5, 'sunday':6, 'None':None, 'all':'all'}
 
-# keys list for indexing the CITY_DATA dictionary
-keys = []
-for key in CITY_DATA.keys():
-    keys.append(key)
+list_city = ['chicago', 'washington', 'new york city']
 
 def get_filters():
 
@@ -38,7 +35,7 @@ def get_filters():
     days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     explore_by = ['month', 'day', 'both', 'none']
     try:
-        while city not in keys:
+        while city not in list_city:
             city = input('Enter city you wish to explore (chicago, new york city, washington)\n\n >').lower()
         print('\n Welcome to the {} bikeshare database.\n'.format(city))
         select_by = input('Would you like to explore the data by month, both(month and day), or none\n >').lower()
@@ -98,21 +95,28 @@ def load_data(city, month, day):
     Returns:
             df - Pandas DataFrame containing city data filtered by month and day
     """
-    list_city = ['chicago', 'washington', 'new york city']
-    if city in list_city:
-        filename = CITY_DATA[city]
-        df = pd.read_csv(filename)
-        df['Start Time'] = pd.to_datetime(df['Start Time'])
-        if month == None and day == None:
-            df['Start Time'] = pd.to_datetime(df['Start Time'])
-        elif month ==None and day != None:
-            df['DayOfWeek'] = df['Start Time'].dt.dayofweek
-        elif month != None and day == None:
-            df['Month'] = df['Start Time'].dt.month
-        elif month != None and day != None:
-            df['DayOfWeek'] = df['Start Time'].dt.dayofweek
-            df['Month'] = df['Start Time'].dt.month
-    return df
+    filename = CITY_DATA[city]
+    df = pd.read_csv(filename)
+    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['DayOfWeek'] = df['Start Time'].dt.dayofweek
+    df['Month'] = df['Start Time'].dt.month
+    if month == None and day == None:
+        df2 = df
+    elif  day == 'all':
+        df2 = df
+    elif day != None and day != 'all':
+        df2 = df[df['DayOfWeek'] == day]
+    elif month == 'all':
+        df2 = df
+    elif month != None and month != 'all':
+        df2 = df[df['Month'] == month]
+    elif month != None and day != None:
+        df1 = df[df['Month'] == month]
+        df2 = df1[df1['DayOfWeek'] == day]
+
+    return df2
+
+
 
 
 
