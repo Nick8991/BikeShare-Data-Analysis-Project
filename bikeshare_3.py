@@ -35,7 +35,7 @@ def get_filters():
     days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     explore_by = ['month', 'day', 'both', 'none']
     try:
-        while city not in keys:
+        while city not in list_city:
             city = input('Enter city you wish to explore (chicago, new york city, washington)\n\n >').lower()
         print('\n Welcome to the {} bikeshare database.\n'.format(city))
         select_by = input('Would you like to explore the data by month, both(month and day), or none\n >').lower()
