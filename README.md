@@ -17,4 +17,7 @@ US BikeShare is a bicycle sharing system in the cities of Chicago, Washington an
 * new_york_city.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+1. https://www.motivateco.com/
+* For thier powerful database that provided me all real-time users information.
+2. https://github.com/udacity/pdsnd_github
+* Thanks to udacity, as thier repository acted as a base template for my repository.
