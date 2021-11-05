@@ -13,10 +13,7 @@ month_index = {'january':1, 'february':2, 'march':3,  'april':4, 'may': 5,
 week_index = {'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3,
                 'friday':4, 'saturday':5, 'sunday':6, 'None':None, 'all':'all'}
 
-# keys list for indexing the CITY_DATA dictionary
-keys = []
-for key in CITY_DATA.keys():
-    keys.append(key)
+list_city = ['chicago', 'washington', 'new york city']
 
 def get_filters():
 
@@ -98,7 +95,6 @@ def load_data(city, month, day):
     Returns:
             df - Pandas DataFrame containing city data filtered by month and day
     """
-    list_city = ['chicago', 'washington', 'new york city']
     if city in list_city:
         filename = CITY_DATA[city]
         df = pd.read_csv(filename)
