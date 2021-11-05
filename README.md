@@ -27,3 +27,8 @@ US BikeShare is a bicycle sharing system in the cities of Chicago, Washington an
 * https://numpy.org/devdocs/reference/index.html
 * https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
   * numpy and pandas great libraries and functions as they are well explained.
+
+## Software needed to run program:
+* Python 3, Numpy, and Pandas installed using Anaconda or pip.
+* A text editor like geany, sublime text or atom.
+* A bash terminal.
