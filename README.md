@@ -21,3 +21,9 @@ US BikeShare is a bicycle sharing system in the cities of Chicago, Washington an
 * For thier powerful database that provided me all real-time users information.
 2. https://github.com/udacity/pdsnd_github
 * Thanks to udacity, as thier repository acted as a base template for my repository.
+3. A great thanks to:
+* [Udacity](https://www.udacity.com/) for the wonderful course on [Data Science](https://classroom.udacity.com/nanodegrees/nd104/).
+* And my git and github and python course mentors [**Richard Kalehoff**](https://github.com/richardkalehoff) and [**Juno Lee**](https://www.linkedin.com/in/junoleelj) respectively.
+* https://numpy.org/devdocs/reference/index.html
+* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
+  * numpy and pandas great libraries and functions as they are well explained.
